@@ -93,7 +93,7 @@ class Message
         $pool = DescriptorPool::getGeneratedPool();
         $this->desc = $pool->getDescriptorByClassName(get_class($this));
         if (is_null($this->desc)) {
-            user_error(get_class($this) . " is not found in descriptor pool.");
+            user_error(get_class($this) . " is not found in descriptor pool.", E_USER_ERROR);
         }
         foreach ($this->desc->getField() as $field) {
             $setter = $field->getSetter();
